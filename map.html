@@ -18,7 +18,7 @@
     <div id="map" class="map"></div>
       
     <script>
-        
+
         //declare a title layer with OSM source
         //var osm_layer = new ol.layer.Title({
         //   source: new ol.source.OSM() 
@@ -36,22 +36,33 @@
         //create map
         var map = new ol.Map({
             target: 'map',
-            layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM()
-          })
-        ],
-        view: new ol.View({
-          center: ol.proj.fromLonLat([37.41, 8.82]),
+            layers: [new ol.layer.Tile({source: new ol.source.OSM()})],
+            view: new ol.View({
+          center: chicago,
           zoom: 4
         })
         });
+        
+
+        var neighboorhoods = new ol.layer.Vector({
+            title: 'added Layer',
+            source: new ol.source.Vector({
+            url: 'boundaries_neighborhoods.geojson',
+            format: new ol.format.GeoJSON()
+            })
+        })
+        
+        //add the created geo layer
+        map.addLayer(neighboorhoods)
         
         //add the created source layer
         //map.addLayer(osm_layer)
         
         //add the created view
         map.setView(view_0)
+        
+        
+
     </script>
   </body>
 </html>
