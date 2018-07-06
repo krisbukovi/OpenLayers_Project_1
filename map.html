@@ -2,31 +2,56 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.0.2/css/ol.css" type="text/css">
+    <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
+      
     <style>
       .map {
-        width: 100%;
+        height: 90vh;
       }
     </style>
     <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.0.2/build/ol.js"></script>
     <title>OpenLayers example</title>
   </head>
+    
   <body>
-    <h2>My Map</h2>
+    <h2>Chicago Water Test</h2>
     <div id="map" class="map"></div>
       
-    <script type="text/javascript">
-      var map = new ol.Map({
-        target: 'map',
-        layers: [
+    <script>
+        
+        //declare a title layer with OSM source
+        //var osm_layer = new ol.layer.Title({
+        //   source: new ol.source.OSM() 
+        //});
+        
+        //create latitude and longitude and convert them to default projection
+        var chicago = ol.proj.transform([-87.6298, 41.8781], 'EPSG:4326', 'EPSG:3857');
+        
+        //create a view
+        var view_0 = new ol.View({
+            center: chicago,
+            zoom: 13
+        });
+        
+        //create map
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
           new ol.layer.Tile({
             source: new ol.source.OSM()
           })
         ],
         view: new ol.View({
-          center: ol.proj.fromLonLat([-87.6298, 41.8781]),
-          zoom: 14
+          center: ol.proj.fromLonLat([37.41, 8.82]),
+          zoom: 4
         })
-      });
+        });
+        
+        //add the created source layer
+        //map.addLayer(osm_layer)
+        
+        //add the created view
+        map.setView(view_0)
     </script>
   </body>
 </html>
