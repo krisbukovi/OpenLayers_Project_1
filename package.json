@@ -1,0 +1,19 @@
+{
+  "name": "openlayers_project_1",
+  "version": "1.0.0",
+  "description": "open layers implementation",
+  "main": "map.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krisbukovi/OpenLayers_Project_1.git"
+  },
+  "author": "kris bukovi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krisbukovi/OpenLayers_Project_1/issues"
+  },
+  "homepage": "https://github.com/krisbukovi/OpenLayers_Project_1#readme"
+}
